@@ -1,172 +1,208 @@
 
-#  Scalable REST API with Authentication & Role-Based Access  
+#  Frontend Developer Assignment – Kamesh H
 
-### **Backend Developer Intern – Project Assignment**  
-
-This project is a **scalable REST API** built using **Node.js + Express + MongoDB (Mongoose)** that demonstrates secure authentication, role-based access, and CRUD operations.  
-A minimal **React.js frontend** is also included to test and visualize API functionality.  
+This project demonstrates a **modern full-stack web application** built with **React.js (frontend)** and **Node.js/Express (backend)**.  
+It implements **JWT authentication**, **role-based access**, and **CRUD operations** — all wrapped in a secure, scalable architecture.
 
 ---
 
-##  Features Overview  
+##  Project Overview
 
-###  **Backend (Primary Focus)**  
-- 🔐 **User Authentication** – Register/Login with JWT-based authentication  
-- 🧑‍💼 **Role-Based Access Control** – User vs Admin  
-- 🗃️ **CRUD APIs** – Example entity: `Tasks`  
-- 🧩 **API Versioning** – `/api/v1/` prefix  
-- ⚙️ **Validation & Error Handling** – Centralized middleware  
-- 📜 **API Documentation** – Postman Collection or Swagger UI  
-- 🧱 **Database** – MongoDB (Mongoose ORM)  
-
----
-
-###  **Frontend (Supportive)**  
-- ⚛️ **React.js** UI for testing API endpoints  
-- 👤 Register & Login pages  
-- 🔑 Dashboard with JWT-based access  
-- ✏️ CRUD actions on “Tasks” (Create, Read, Update, Delete)  
-- 🧾 Real-time error/success message handling  
+###  Objective
+To build a **scalable web app** featuring:
+- Secure authentication & authorization  
+- Protected dashboard (JWT-based)  
+- CRUD operations for a sample entity (e.g., Tasks)  
+- Integration between frontend & backend  
+- Responsive, clean UI
 
 ---
 
-##  Tech Stack  
+##  Tech Stack
 
-| Layer | Technology |
-|-------|-------------|
-| Backend | Node.js, Express.js |
-| Database | MongoDB + Mongoose |
-| Auth | JWT (JSON Web Token) + bcrypt |
-| Frontend | React.js |
-| Docs | Postman |
+### Frontend
+- **React.js**
+- **TailwindCSS** (responsive design)
+- **Axios** for API calls
+- **React Router DOM** for routing & protected routes
 
+### Backend
+- **Node.js + Express.js**
+- **MongoDB + Mongoose**
+- **bcrypt.js** for password hashing
+- **jsonwebtoken (JWT)** for authentication
+- **CORS** & **dotenv** for security & configuration
 
 ---
 
-## Folder Structure  
+##  Features Implemented
+
+###  Authentication & Security
+- User registration & login with JWT
+- Password hashing using bcrypt
+- JWT middleware for route protection
+- Role-based access (User/Admin)
+
+###  CRUD Operations
+- Create, Read, Update, Delete operations on **Tasks**
+- CRUD routes protected by JWT
+- Frontend UI to manage tasks (Add/Edit/Delete/View)
+
+###  Dashboard
+- Displays user profile (fetched from backend)
+- Task management table (CRUD)
+- Logout functionality
+- Success & error messages displayed in real-time
+
+###  Additional Features
+- Input validation (client + server)
+- API versioning (`/api/v1`)
+- Centralized error handling
+- Modular folder structure for scalability
+
+---
+
+##  Project Structure
 
 ```
 
-📦 scalable-api-assignment
-├── backend
-│   ├── src
-│   │   ├── config/
-│   │   ├── controllers/
-│   │   ├── middlewares/
-│   │   ├── models/
-│   │   ├── routes/
-│   │   └── utils/
-│   ├── server.js
-│   ├── package.json
-│   └── .env
+frontend-developer-task-kamesh/
 │
-├── frontend
+├── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── config/
+│   ├── server.js
+│   ├── .env
+│   └── package.json
+│
+├── frontend/
 │   ├── src/
-│   ├── package.json
-│   └── public/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   └── App.js
+│   ├── public/
+│   └── package.json
 │
 ├── README.md
-└── postman_collection.json
+├── server_logs.txt
+└── frontend_api_collection.json
 
+
+
+###  Clone the Repository
+```bash
+git clone https://github.com/kamesh-h/frontend-developer-task-kamesh.git
+cd frontend-developer-task-kamesh
 ````
 
----
-
-##  Setup Instructions  
-
-###  **Backend Setup**
+###  Backend Setup
 
 ```bash
-# Navigate to backend
 cd backend
-
-# Install dependencies
 npm install
+```
 
+Create a `.env` file:
 
-**Run backend**
+```
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+```
+
+Start the server:
 
 ```bash
 npm run dev
 ```
 
-Server runs at: `http://localhost:5000/api/v1`
-
----
-
-###  **Frontend Setup**
+###  Frontend Setup
 
 ```bash
-cd frontend
+cd ../frontend
 npm install
 npm start
 ```
 
-Frontend runs at: `http://localhost:3000`
+Access the app at **[http://localhost:3000](http://localhost:3000)**
 
 ---
 
 ##  API Documentation
 
-### **Auth Routes**
+### Base URL
 
-| Method | Endpoint              | Description         | Access |
-| ------ | --------------------- | ------------------- | ------ |
-| POST   | /api/v1/auth/register | Register a new user | Public |
-| POST   | /api/v1/auth/login    | Login and get JWT   | Public |
+```
+http://localhost:5000/api/v1
+```
 
-### **Task Routes**
+### Auth Routes
 
-| Method | Endpoint          | Description     | Access    |
-| ------ | ----------------- | --------------- | --------- |
-| GET    | /api/v1/tasks     | Get all tasks   | Protected |
-| POST   | /api/v1/tasks     | Create new task | Protected |
-| PUT    | /api/v1/tasks/:id | Update task     | Protected |
-| DELETE | /api/v1/tasks/:id | Delete task     | Admin     |
+| Method | Endpoint       | Description             |
+| :----- | :------------- | :---------------------- |
+| POST   | /auth/register | Register new user       |
+| POST   | /auth/login    | Login and get JWT token |
 
- ##  Included Deliverables
+### Task Routes (Protected)
 
--  **Postman Collection:** [backend_api_collection.json](./backend_api_collection.json)
--  **Server Logs:** [server_logs.txt](./server_logs.txt)
+| Method | Endpoint   | Description     |
+| :----- | :--------- | :-------------- |
+| GET    | /tasks     | Fetch all tasks |
+| POST   | /tasks     | Create new task |
+| PUT    | /tasks/:id | Update task     |
+| DELETE | /tasks/:id | Delete task     |
+
+> Full Postman Collection is included in the repo: `frontend_api_collection.json`
 
 ---
 
 ##  Security Practices
-* Passwords hashed with **bcrypt**
-* JWT stored securely in **HTTP headers**
-* Input sanitized with **express-validator**
-* Centralized error handling for clean responses
+
+* Passwords hashed using bcrypt
+* JWT tokens stored in HTTP headers
+* Input sanitization
+* Helmet + CORS configuration
+* Modular middleware validation
 
 ---
 
-##  Scalability Notes
+##  Scalability Note
 
-This backend can easily scale using:
+This architecture can scale using:
 
-* **Microservices architecture** for user & task modules
-* **Redis caching** for repeated API calls
-* **Load balancing** via Nginx or AWS ELB
-* **Docker containers** for deployment
-* **Horizontal scaling** with Kubernetes or serverless functions
+* **Microservices**: Split auth, task, and UI into separate services
+* **Caching**: Use Redis for frequently accessed data
+* **Load Balancing**: Use NGINX or AWS ELB for horizontal scaling
+* **Docker**: Containerize both frontend & backend for easy deployment
+
+---
+
+##  Deliverables
+
+* ✅ Frontend (React.js) + Backend (Express.js)
+* ✅ JWT Authentication & Role-Based Access
+* ✅ CRUD APIs with validation
+* ✅ Responsive Dashboard UI
+* ✅ Postman Collection
+* ✅ Log Files (`server_logs.txt`)
+* ✅ Scalability Note in README
 
 ---
 
 ##  Developer
 
 **Name:** Kamesh H
-**Role:** Backend Developer Intern Applicant
+**Role:** Frontend Developer Intern (Assignment Submission)
 
 ---
 
-## Submission
+## 📬 Submission Details
 
-Send your:
-
-*  GitHub Repo link
-*  Postman collection
-*  Log files
-
-To:
+**To:**
 
 ```
 saami@bajarangs.com  
@@ -175,7 +211,21 @@ chetan@bajarangs.com
 (CC: sonika@primetrade.ai)
 ```
 
-**Subject:** Backend Developer Task – Kamesh H
+**Subject:**
+
+```
+Frontend Developer Task – Kamesh H
+```
+
+**Included in Repository:**
+ GitHub Repo (frontend + backend + README)
+ Postman API Collection (`frontend_api_collection.json`)
+ Log Files (`server_logs.txt`)
 
 ---
 
+## 🏁 Thank You
+
+Thank you for reviewing this submission.
+This project demonstrates my ability to design, secure, and integrate full-stack applications with professional frontend-backend communication, scalable architecture, and production-ready practices.
+"# frontend-developer-task-kamesh" 
