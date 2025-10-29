@@ -1,0 +1,11 @@
+{
+	"info": {
+		"_postman_id": "eb0446df-2e0b-4c3c-b98e-7ddfa3632f12",
+		"name": "Backend API Collection",
+		"description": "StartFragment\n\n- `POST /api/v1/auth/register`\n    \n- `POST /api/v1/auth/login`\n    \n- `GET /api/v1/tasks`\n    \n- `POST /api/v1/tasks`\n    \n- `PUT /api/v1/tasks/:id`\n    \n- `DELETE /api/v1/tasks/:id`\n    \n\nEndFragment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49638532",
+		"_collection_link": "https://hkameshcse-4355492.postman.co/workspace/1c497d1a-4311-4e54-8e07-017e861c114d/collection/49638532-eb0446df-2e0b-4c3c-b98e-7ddfa3632f12?action=share&source=collection_link&creator=49638532"
+	},
+	"item": []
+}
